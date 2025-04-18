@@ -7,119 +7,117 @@ export type StoryNode = {
 
 export const story: Record<string, StoryNode> = {
   start: {
-    text: "You arrive at a conference room in Tokyo for an important cross-cultural business meeting.",
+    text: "You arrive at an international business workshop in Tokyo.",
     options: [
       {
-        text: "Start by setting up your slides and opening your laptop.",
-        next: "slideSetup",
+        text: "Introduce yourself and show your agenda.",
+        next: "agendaIntro",
         style: "linear",
       },
       {
-        text: "Introduce yourself warmly and ask about their hobbies.",
-        next: "warmIntro",
+        text: "Start with small talk and ask about food preferences.",
+        next: "smallTalk",
         style: "multi",
       },
       {
-        text: "Bow lightly and wait quietly for the host to speak first.",
-        next: "respectfulWait",
+        text: "Wait for the host to speak first.",
+        next: "pauseRespect",
         style: "reactive",
       },
     ],
   },
 
-  slideSetup: {
-    text: "You begin to organize your slide deck and take the lead. Your hosts seem surprised.",
+  agendaIntro: {
+    text: "Your data is well-organized. The group nods but remains quiet.",
     options: [
       {
-        text: "Continue presenting your agenda directly.",
-        next: "directPitch",
+        text: "Continue outlining your plan in detail.",
+        next: "slidePush",
         style: "linear",
       },
       {
-        text: "Apologize and ask if they’d like to begin instead.",
-        next: "apologizeBacktrack",
+        text: "Ask if they’d like to share their thoughts first.",
+        next: "inviteDialogue",
         style: "reactive",
       },
     ],
   },
 
-  warmIntro: {
-    text: "You bring up your love for sushi and ask about favorite places. Your hosts smile politely but don’t answer much.",
+  smallTalk: {
+    text: "Some laugh, but a few seem uncomfortable.",
     options: [
       {
-        text: "Keep talking to break the ice.",
-        next: "keepChatting",
+        text: "Tell a funny story to loosen the mood.",
+        next: "funnyStory",
         style: "multi",
       },
       {
-        text: "Sense the awkwardness and shift focus to their lead.",
-        next: "backOff",
+        text: "Pause and ask about their expectations instead.",
+        next: "expectationShift",
         style: "reactive",
       },
     ],
   },
 
-  respectfulWait: {
-    text: "You offer a small bow and wait. After a pause, the host smiles and begins. The mood is warm and smooth.",
+  pauseRespect: {
+    text: "They begin with a warm welcome. You’ve earned trust.",
     options: [
       {
-        text: "Listen closely and ask clarifying questions.",
-        next: "smoothFlow",
+        text: "Ask about their goals for the meeting.",
+        next: "goalInquiry",
         style: "reactive",
       },
       {
-        text: "Try to match their structure and mirror their tone.",
-        next: "mirrorMatch",
-        style: "reactive",
+        text: "Start presenting your solution.",
+        next: "slidePush",
+        style: "linear",
       },
     ],
   },
 
-  // 🔵 Linear-Active branch
-  directPitch: {
-    text: "Your clear, goal-driven style feels abrupt. The hosts appreciate the data but seem a bit distant.",
+  slidePush: {
+    text: "The host listens but looks slightly tense.",
     options: [
-      { text: "Restart", next: "start" },
-      { text: "See Result", next: "result" },
-    ],
-  },
-  apologizeBacktrack: {
-    text: "Your awareness improves the atmosphere. The host leads the meeting smoothly after that.",
-    options: [
-      { text: "Restart", next: "start" },
-      { text: "See Result", next: "result" },
-    ],
-  },
-
-  // 🔴 Multi-Active branch
-  keepChatting: {
-    text: "The more you talk, the more your hosts withdraw. The meeting feels off-balance.",
-    options: [
-      { text: "Restart", next: "start" },
-      { text: "See Result", next: "result" },
-    ],
-  },
-  backOff: {
-    text: "You adjust and allow the local tone to take the lead. Respect earns you favor.",
-    options: [
-      { text: "Restart", next: "start" },
-      { text: "See Result", next: "result" },
+      {
+        text: "Pause to ask for input.",
+        next: "inviteDialogue",
+        style: "reactive",
+      },
+      {
+        text: "Continue confidently to the end.",
+        next: "result",
+        style: "linear",
+      },
     ],
   },
 
-  // 🟢 Reactive branch
-  smoothFlow: {
-    text: "Your careful listening is valued. The host offers deeper insights and respects your style.",
+  inviteDialogue: {
+    text: "The host engages more. A shared tone is established.",
     options: [
-      { text: "Restart", next: "start" },
-      { text: "See Result", next: "result" },
+      { text: "Finish the session", next: "result", style: "reactive" },
     ],
   },
-  mirrorMatch: {
-    text: "You match the tone and build rapport slowly. Trust grows naturally.",
+
+  funnyStory: {
+    text: "They laugh and seem more open to your approach.",
+    options: [{ text: "Wrap up your intro", next: "result", style: "multi" }],
+  },
+
+  expectationShift: {
+    text: "They respond with curiosity and share their thoughts.",
     options: [
-      { text: "Restart", next: "start" },
-      { text: "See Result", next: "result" },
+      { text: "Wrap up your intro", next: "result", style: "reactive" },
+    ],
+  },
+
+  goalInquiry: {
+    text: "They appreciate your interest in their needs.",
+    options: [
+      {
+        text: "Move into your presentation",
+        next: "result",
+        style: "reactive",
+      },
     ],
   },
   result: {
