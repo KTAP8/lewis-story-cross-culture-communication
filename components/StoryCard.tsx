@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Pressable, StyleSheet } from "react-native";
+import { View, Pressable, StyleSheet, Image } from "react-native";
 import { StoryNode, StyleType } from "@/data/storyData";
 import Text from "@/components/DefaultText";
 
@@ -11,6 +11,16 @@ type Props = {
 const StoryCard: React.FC<Props> = ({ storyNode, onOptionPress }) => {
   return (
     <View style={styles.container}>
+      <View style={styles.imageContainer}>
+        {storyNode.image && (
+          <Image
+            source={storyNode.image}
+            style={styles.image}
+            resizeMode="cover"
+          />
+        )}
+      </View>
+
       <Text style={styles.storyText}>{storyNode.text}</Text>
 
       {storyNode.options.map((option, index) => (
@@ -73,5 +83,15 @@ const styles = StyleSheet.create({
     fontWeight: "600",
     color: "#333",
     fontFamily: "Nunito_600SemiBold",
+  },
+  image: {
+    width: 300,
+    height: 230,
+    borderRadius: 16,
+    marginBottom: 20,
+  },
+  imageContainer: {
+    justifyContent: "center",
+    alignItems: "center",
   },
 });

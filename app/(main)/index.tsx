@@ -1,5 +1,12 @@
 import React from "react";
-import { SafeAreaView, StyleSheet, View, Text, Pressable } from "react-native";
+import {
+  SafeAreaView,
+  StyleSheet,
+  View,
+  Text,
+  Pressable,
+  Image,
+} from "react-native";
 import { Link } from "expo-router";
 import { useRouter } from "expo-router";
 
@@ -8,6 +15,10 @@ export default function Learn() {
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.inner}>
+        <Image
+          style={styles.image}
+          source={require("@/assets/images/mascot.png")}
+        ></Image>
         <Text style={styles.title}>📘 Learn About Lewis Model</Text>
 
         <View style={styles.cardList}>
@@ -92,5 +103,11 @@ const styles = StyleSheet.create({
   },
   reactive: {
     backgroundColor: "#E6F3FF",
+  },
+  image: {
+    width: 150,
+    height: 150,
+    borderRadius: 16,
+    marginBottom: 20,
   },
 });
