@@ -1,7 +1,7 @@
-import { View, StyleSheet } from "react-native";
+import React, { useRef } from "react";
+import { Animated, View, StyleSheet, Pressable, Text } from "react-native";
 import { Slot, useRouter, usePathname } from "expo-router";
 import { Ionicons } from "@expo/vector-icons";
-import { Pressable, Text } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 
 export default function MainLayout() {
@@ -22,27 +22,51 @@ export default function MainLayout() {
 
       {/* ✅ Add safe area padding to bottom nav */}
       <View style={[styles.nav, { paddingBottom: insets.bottom }]}>
-        {tabs.map((tab) => {
+        {tabs.map((tab, index) => {
+          const scale = useRef(new Animated.Value(1)).current;
           const isActive = pathname === tab.route;
+
+          const handlePressIn = () => {
+            Animated.spring(scale, {
+              toValue: 1.15,
+              useNativeDriver: true,
+              friction: 5,
+            }).start();
+          };
+
+          const handlePressOut = () => {
+            Animated.spring(scale, {
+              toValue: 1,
+              useNativeDriver: true,
+              friction: 5,
+            }).start();
+            router.navigate(tab.route);
+          };
           return (
             <Pressable
               key={tab.route}
-              onPress={() => router.navigate(tab.route)}
+              onPressIn={handlePressIn}
+              onPressOut={handlePressOut}
               style={styles.tab}
             >
-              <Ionicons
-                name={tab.icon}
-                size={24}
-                color={isActive ? "#58CC02" : "#B0B0B0"}
-              />
-              <Text
-                style={[
-                  styles.label,
-                  isActive ? styles.activeLabel : undefined,
-                ]}
+              <Animated.View
+                style={[styles.iconWrapper, { transform: [{ scale }] }]}
               >
-                {tab.name}
-              </Text>
+                <Ionicons
+                  name={tab.icon}
+                  size={isActive ? 28 : 24}
+                  color={isActive ? "#8ee000" : "#cfcfcf"}
+                />
+                <Text
+                  style={[
+                    styles.label,
+                    isActive && styles.activeLabel,
+                    isActive && styles.activeLabelSize,
+                  ]}
+                >
+                  {tab.name}
+                </Text>
+              </Animated.View>
             </Pressable>
           );
         })}
@@ -61,21 +85,32 @@ const styles = StyleSheet.create({
   nav: {
     flexDirection: "row",
     justifyContent: "space-around",
+    alignItems: "center", // ✅ ensure children are vertically centered
     paddingVertical: 12,
-    borderTopWidth: 1,
-    borderTopColor: "#eee",
-    backgroundColor: "#fff",
+    paddingBottom: 12, // use a default first
+    paddingTop: 6,
+    borderTopWidth: 3,
+    borderTopColor: "#cfcfcf",
+    backgroundColor: "#f0f0f0",
+    minHeight: 80, // ✅ fix or control nav bar height
   },
   tab: {
     alignItems: "center",
   },
   label: {
     fontSize: 12,
-    fontFamily: "Nunito_600SemiBold",
-    color: "#B0B0B0",
+    fontFamily: "SpecialGothic",
+    color: "#cfcfcf",
     fontWeight: "600",
   },
   activeLabel: {
-    color: "#58CC02",
+    color: "#8ee000",
+  },
+  activeLabelSize: {
+    fontSize: 14,
+  },
+  iconWrapper: {
+    alignItems: "center", // ✅ horizontal center of icon + text
+    justifyContent: "center", // ✅ vertical centering
   },
 });

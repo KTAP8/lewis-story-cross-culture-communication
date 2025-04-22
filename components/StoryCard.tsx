@@ -45,8 +45,8 @@ const styles = StyleSheet.create({
   container: {
     padding: 24,
     marginTop: 60,
-    backgroundColor: "#F2FDFB",
-    borderRadius: 20,
+    backgroundColor: "#FFFFFF",
+    borderRadius: 10,
     shadowColor: "#000",
     shadowOpacity: 0.05,
     shadowRadius: 10,
@@ -54,12 +54,13 @@ const styles = StyleSheet.create({
     marginHorizontal: 16,
   },
   storyText: {
-    fontSize: 20,
-    fontWeight: "600",
+    fontSize: 16,
+    fontWeight: "400",
     marginBottom: 24,
-    color: "#1A1A1A",
-    fontFamily: "Nunito_600SemiBold",
-    lineHeight: 28,
+    color: "#4c4c4c",
+    fontFamily: "SpecialGothic",
+    lineHeight: 20,
+    textAlign: "center",
   },
   optionButton: {
     backgroundColor: "#FFFFFF",
@@ -80,9 +81,9 @@ const styles = StyleSheet.create({
   },
   optionText: {
     fontSize: 16,
-    fontWeight: "600",
-    color: "#333",
-    fontFamily: "Nunito_600SemiBold",
+    fontWeight: "400",
+    color: "#6f6f6f",
+    fontFamily: "Arimo",
   },
   image: {
     width: 300,

@@ -28,6 +28,8 @@ export default function RootLayout() {
     Nunito_400Regular,
     Nunito_600SemiBold,
     Nunito_700Bold,
+    SpecialGothic: require("@/assets/fonts/SpecialGothicExpandedOne-Regular.ttf"),
+    Arimo: require("@/assets/fonts/Arimo-VariableFont_wght.ttf"),
   });
   // const [loaded] = useFonts({
   //   SpaceMono: require("../assets/fonts/SpaceMono-Regular.ttf"),
@@ -58,6 +60,6 @@ export default function RootLayout() {
 const styles = StyleSheet.create({
   wrapper: {
     flex: 1,
-    fontFamily: "Nunito_400Regular", // fallback for views
+    fontFamily: "Arimo", // fallback for views
   },
 });

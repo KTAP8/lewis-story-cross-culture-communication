@@ -93,9 +93,9 @@ const ResultScreen = ({
       <Text style={styles.resultText}>{messages[topStyle]}</Text>
 
       <View style={styles.scoreContainer}>
-        <Bar label="🧠 Linear-Active" value={scores.linear} color="#FEEEB7" />
-        <Bar label="🔥 Multi-Active" value={scores.multi} color="#FFD6D3" />
-        <Bar label="🌊 Reactive" value={scores.reactive} color="#CCE7F6" />
+        <Bar label="🧠 Linear-Active" value={scores.linear} color="#faa918" />
+        <Bar label="🔥 Multi-Active" value={scores.multi} color="#e53838" />
+        <Bar label="🌊 Reactive" value={scores.reactive} color="#1cb0f6" />
       </View>
 
       <Pressable style={styles.button} onPress={onRestart}>
@@ -108,7 +108,7 @@ const ResultScreen = ({
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#F2FDFB", // pastel green background
+    backgroundColor: "#f0f0f0", // pastel green background
   },
   inner: {
     flex: 1,
@@ -118,7 +118,7 @@ const styles = StyleSheet.create({
   resultCard: {
     backgroundColor: "#FFFFFF",
     padding: 32,
-    borderRadius: 24,
+    borderRadius: 10,
     width: Dimensions.get("window").width * 0.9,
     alignItems: "center",
     shadowColor: "#000",
@@ -127,19 +127,21 @@ const styles = StyleSheet.create({
     elevation: 4,
   },
   resultTitle: {
-    fontSize: 24,
+    fontSize: 23,
     fontWeight: "bold",
     color: "#1A1A1A",
     marginBottom: 20,
+    fontFamily: "SpecialGothic",
   },
   resultText: {
     fontSize: 18,
     color: "#333",
     textAlign: "center",
     marginBottom: 32,
+    fontFamily: "Arimo",
   },
   button: {
-    backgroundColor: "#58CC02", // Duolingo green
+    backgroundColor: "#7ac70c", // Duolingo green
     paddingVertical: 12,
     paddingHorizontal: 24,
     borderRadius: 999,
@@ -147,7 +149,8 @@ const styles = StyleSheet.create({
   buttonText: {
     color: "#FFFFFF",
     fontWeight: "600",
-    fontSize: 16,
+    fontSize: 15,
+    fontFamily: "SpecialGothic",
   },
   scoreContainer: {
     width: "100%",

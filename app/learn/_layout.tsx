@@ -7,14 +7,14 @@ export default function LearnLayout() {
       screenOptions={{
         headerShown: true,
         headerStyle: {
-          backgroundColor: "#F2FDFB",
+          backgroundColor: "#f0f0f0",
         },
         headerTitleStyle: {
-          fontFamily: "Nunito_700Bold",
+          fontFamily: "SpecialGothic",
         },
-        headerTintColor: "#58CC02", // back button color
+        headerTintColor: "#7ac70c", // back button color
         contentStyle: {
-          backgroundColor: "#F2FDFB", // ✅ background of screen itself
+          backgroundColor: "#f0f0f0", // ✅ background of screen itself
         },
       }}
     />

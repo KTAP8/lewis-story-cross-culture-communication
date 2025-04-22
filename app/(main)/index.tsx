@@ -19,7 +19,7 @@ export default function Learn() {
           style={styles.image}
           source={require("@/assets/images/mascot.png")}
         ></Image>
-        <Text style={styles.title}>📘 Learn About Lewis Model</Text>
+        <Text style={styles.title}>Learn Lewis Model</Text>
 
         <View style={styles.cardList}>
           <Pressable
@@ -27,7 +27,7 @@ export default function Learn() {
             style={[styles.card, styles.linear]}
           >
             <Text style={styles.emoji}>🧠</Text>
-            <Text style={styles.cardText}>Learn Linear-Active</Text>
+            <Text style={styles.cardText}>What Is Linear-Active?</Text>
           </Pressable>
 
           <Pressable
@@ -35,7 +35,7 @@ export default function Learn() {
             style={[styles.card, styles.multi]}
           >
             <Text style={styles.emoji}>🔥</Text>
-            <Text style={styles.cardText}>Learn Multi-Active</Text>
+            <Text style={styles.cardText}>What Is Multi-Active?</Text>
           </Pressable>
 
           <Pressable
@@ -43,7 +43,7 @@ export default function Learn() {
             style={[styles.card, styles.reactive]}
           >
             <Text style={styles.emoji}>🌊</Text>
-            <Text style={styles.cardText}>Learn Reactive</Text>
+            <Text style={styles.cardText}>What Is Reactive?</Text>
           </Pressable>
         </View>
       </View>
@@ -54,7 +54,7 @@ export default function Learn() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#F2FDFB",
+    backgroundColor: "#f0f0f0",
     fontFamily: "Nunito_400Regular",
   },
   inner: {
@@ -66,8 +66,8 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 26,
     fontWeight: "bold",
-    fontFamily: "Nunito_700Bold",
-    color: "#1A1A1A",
+    fontFamily: "SpecialGothic",
+    color: "#4c4c4c",
     marginBottom: 32,
     textAlign: "center",
   },
@@ -92,17 +92,18 @@ const styles = StyleSheet.create({
   cardText: {
     fontSize: 18,
     fontWeight: "600",
-    color: "#1A1A1A",
-    fontFamily: "Nunito_600SemiBold",
+    color: "#fff",
+    // fontFamily: "Nunito_600SemiBold",
+    fontFamily: "Arimo",
   },
   linear: {
-    backgroundColor: "#FDF7E3",
+    backgroundColor: "#faa918",
   },
   multi: {
-    backgroundColor: "#FFE8E5",
+    backgroundColor: "#e53838",
   },
   reactive: {
-    backgroundColor: "#E6F3FF",
+    backgroundColor: "#1cb0f6",
   },
   image: {
     width: 150,

@@ -37,8 +37,8 @@ const styles = StyleSheet.create({
     fontSize: 14,
     fontWeight: "600",
     marginBottom: 4,
-    color: "#333",
-    fontFamily: "Nunito_600SemiBold",
+    color: "#4c4c4c",
+    fontFamily: "SpecialGothic",
   },
 
   barTrack: {

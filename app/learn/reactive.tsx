@@ -34,21 +34,24 @@ export default function ReactivePage() {
             {"\n"}• Indirect in giving feedback, to avoid causing offense
             {"\n"}• Prefer building relationships slowly, based on trust and
             observation
-            {"\n\n"}✅ Strengths:
+            {"\n\n"}
+            <Text style={styles.sectionHeader}>✅ Strengths:</Text>
             {"\n"}• Excellent at diffusing tension and maintaining group
             cohesion
             {"\n"}• Reliable in environments where discretion and thoughtfulness
             are valued
             {"\n"}• Naturally adapt to group needs and non-verbal communication
             {"\n"}• Effective mediators and loyal team players
-            {"\n\n"}⚠️ Common Challenges:
+            {"\n\n"}
+            <Text style={styles.sectionHeader}>⚠️ Common Challenges:</Text>
             {"\n"}• May appear passive or indecisive to more direct
             communicators
             {"\n"}• Can feel uncomfortable in high-pressure or fast-paced
             settings
             {"\n"}• Risk being overlooked in competitive or assertive
             environments
-            {"\n\n"}💡 Best Fit For:
+            {"\n\n"}
+            <Text style={styles.sectionHeader}>💡 Best Fit For:</Text>
             {"\n"}• Situations requiring diplomacy and subtle negotiation
             {"\n"}• Roles involving client care, international relations, or
             group facilitation
@@ -65,7 +68,7 @@ export default function ReactivePage() {
 const styles = StyleSheet.create({
   container: {
     padding: 24,
-    backgroundColor: "#F2FDFB",
+    // backgroundColor: "#F2FDFB",
   },
   imageCard: {
     borderRadius: 20,
@@ -92,14 +95,19 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 24,
     fontWeight: "bold",
-    fontFamily: "Nunito_700Bold",
+    fontFamily: "SpecialGothic",
     marginBottom: 16,
-    color: "#1A1A1A",
+    color: "#1cb0f6",
   },
   content: {
     fontSize: 16,
     lineHeight: 26,
     color: "#333",
-    fontFamily: "Nunito_400Regular",
+    fontFamily: "Arimo",
+  },
+  sectionHeader: {
+    fontFamily: "Arimo", // or whatever your bold font is
+    fontWeight: "bold",
+    color: "#1A1A1A",
   },
 });

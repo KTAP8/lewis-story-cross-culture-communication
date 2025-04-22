@@ -34,17 +34,20 @@ export default function MultiPage() {
             {"\n"}• Prefer flexibility over strict schedules
             {"\n"}• Often multitask and jump between topics
             {"\n"}• Rely on personal connections and intuition to make decisions
-            {"\n\n"}✅ Strengths:
+            {"\n\n"}
+            <Text style={styles.sectionHeader}>✅ Strengths:</Text>
             {"\n"}• Great at building rapport and energizing a room
             {"\n"}• Adapt quickly in dynamic social situations
             {"\n"}• Natural storytellers and persuasive communicators
             {"\n"}• Thrive in face-to-face or group settings
-            {"\n\n"}⚠️ Common Challenges:
+            {"\n\n"}
+            <Text style={styles.sectionHeader}>⚠️ Common Challenges:</Text>
             {"\n"}• May struggle with rigid timelines or overly structured
             environments
             {"\n"}• Can appear chaotic or disorganized to linear-active types
             {"\n"}• Emotions might outweigh logic in professional contexts
-            {"\n\n"}💡 Best Fit For:
+            {"\n\n"}
+            <Text style={styles.sectionHeader}>💡 Best Fit For:</Text>
             {"\n"}• Team brainstorming sessions and creative industries
             {"\n"}• Negotiations that depend on trust and personal connection
             {"\n"}• Cultures or teams that value enthusiasm and flexibility
@@ -60,7 +63,7 @@ export default function MultiPage() {
 const styles = StyleSheet.create({
   container: {
     padding: 24,
-    backgroundColor: "#F2FDFB",
+    // backgroundColor: "#d33131",
   },
   imageCard: {
     borderRadius: 20,
@@ -87,14 +90,19 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 24,
     fontWeight: "bold",
-    fontFamily: "Nunito_700Bold",
+    fontFamily: "SpecialGothic",
     marginBottom: 16,
-    color: "#1A1A1A",
+    color: "#e53838",
   },
   content: {
     fontSize: 16,
     lineHeight: 26,
     color: "#333",
-    fontFamily: "Nunito_400Regular",
+    fontFamily: "Arimo",
+  },
+  sectionHeader: {
+    fontFamily: "Arimo", // or whatever your bold font is
+    fontWeight: "bold",
+    color: "#1A1A1A",
   },
 });

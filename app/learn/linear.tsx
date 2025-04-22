@@ -40,16 +40,19 @@ export default function LinearPage() {
             {"\n"}• Speak in turn and respect structured conversations
             {"\n"}• Like to plan ahead and follow a set agenda
             {"\n"}• Tend to work methodically — one thing at a time
-            {"\n\n"}✅ Strengths:
+            {"\n\n"}
+            <Text style={styles.sectionHeader}>✅ Strengths:</Text>
             {"\n"}• Excellent at following structured processes and timelines
             {"\n"}• Reliable in meeting deadlines and long-term goals
             {"\n"}• Clear and logical communication style reduces ambiguity
-            {"\n\n"}⚠️ Common Challenges:
+            {"\n\n"}
+            <Text style={styles.sectionHeader}>⚠️ Common Challenges:</Text>
             {"\n"}• May appear rigid or inflexible in fast-changing situations
             {"\n"}• Can struggle in cultures that value spontaneity or emotion
             {"\n"}• May unintentionally interrupt relational communication
             styles
-            {"\n\n"}💡 Best Fit For:
+            {"\n\n"}
+            <Text style={styles.sectionHeader}>💡 Best Fit For:</Text>
             {"\n"}• Projects requiring planning and clear timelines
             {"\n"}• Formal negotiations or data-driven presentations
             {"\n\n"}🌍 Common in: Germany, USA, Switzerland, UK, Scandinavia
@@ -62,8 +65,8 @@ export default function LinearPage() {
 
 const styles = StyleSheet.create({
   container: {
-    padding: 24,
-    backgroundColor: "#F2FDFB",
+    padding: 20,
+    // backgroundColor: "#faa918",
   },
   imageCard: {
     borderRadius: 20,
@@ -90,14 +93,19 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 24,
     fontWeight: "bold",
-    fontFamily: "Nunito_700Bold",
+    fontFamily: "SpecialGothic",
     marginBottom: 16,
-    color: "#1A1A1A",
+    color: "#faa918",
   },
   content: {
     fontSize: 16,
     lineHeight: 26,
     color: "#333",
-    fontFamily: "Nunito_400Regular",
+    fontFamily: "Arimo",
+  },
+  sectionHeader: {
+    fontFamily: "Arimo", // or whatever your bold font is
+    fontWeight: "600",
+    color: "#1A1A1A",
   },
 });
