@@ -44,7 +44,6 @@ export default StoryCard;
 const styles = StyleSheet.create({
   container: {
     padding: 24,
-    marginTop: 60,
     backgroundColor: "#FFFFFF",
     borderRadius: 10,
     shadowColor: "#000",

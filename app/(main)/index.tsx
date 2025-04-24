@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import {
+  Animated,
   SafeAreaView,
   StyleSheet,
   View,
@@ -12,13 +13,56 @@ import { useRouter } from "expo-router";
 
 export default function Learn() {
   const router = useRouter();
+
+  const translateY = useRef(new Animated.Value(0)).current;
+  const scale = useRef(new Animated.Value(1)).current;
+
+  useEffect(() => {
+    Animated.loop(
+      Animated.sequence([
+        Animated.timing(translateY, {
+          toValue: -8,
+          duration: 800,
+          useNativeDriver: true,
+        }),
+        Animated.timing(translateY, {
+          toValue: 0,
+          duration: 800,
+          useNativeDriver: true,
+        }),
+      ])
+    ).start();
+  }, []);
+
+  const handlePress = () => {
+    Animated.sequence([
+      Animated.spring(scale, {
+        toValue: 1.15,
+        useNativeDriver: true,
+        friction: 3,
+      }),
+      Animated.spring(scale, {
+        toValue: 1,
+        useNativeDriver: true,
+        friction: 4,
+      }),
+    ]).start();
+  };
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.inner}>
-        <Image
-          style={styles.image}
-          source={require("@/assets/images/mascot.png")}
-        ></Image>
+        <Pressable onPress={handlePress}>
+          <Animated.Image
+            source={require("@/assets/images/mascot.png")}
+            style={[
+              styles.image,
+              {
+                transform: [{ translateY }, { scale }],
+              },
+            ]}
+            resizeMode="contain"
+          />
+        </Pressable>
         <Text style={styles.title}>Learn Lewis Model</Text>
 
         <View style={styles.cardList}>
@@ -26,7 +70,7 @@ export default function Learn() {
             onPress={() => router.push("/learn/linear")}
             style={[styles.card, styles.linear]}
           >
-            <Text style={styles.emoji}>🧠</Text>
+            <Text style={styles.emoji}>🧠 </Text>
             <Text style={styles.cardText}>What Is Linear-Active?</Text>
           </Pressable>
 
@@ -34,7 +78,7 @@ export default function Learn() {
             onPress={() => router.push("/learn/multi")}
             style={[styles.card, styles.multi]}
           >
-            <Text style={styles.emoji}>🔥</Text>
+            <Text style={styles.emoji}>🔥 </Text>
             <Text style={styles.cardText}>What Is Multi-Active?</Text>
           </Pressable>
 
@@ -42,7 +86,7 @@ export default function Learn() {
             onPress={() => router.push("/learn/reactive")}
             style={[styles.card, styles.reactive]}
           >
-            <Text style={styles.emoji}>🌊</Text>
+            <Text style={styles.emoji}>🌊 </Text>
             <Text style={styles.cardText}>What Is Reactive?</Text>
           </Pressable>
         </View>
@@ -93,7 +137,6 @@ const styles = StyleSheet.create({
     fontSize: 18,
     fontWeight: "600",
     color: "#fff",
-    // fontFamily: "Nunito_600SemiBold",
     fontFamily: "Arimo",
   },
   linear: {

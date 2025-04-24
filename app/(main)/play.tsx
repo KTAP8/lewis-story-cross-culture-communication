@@ -17,6 +17,44 @@ const initialScores = {
   reactive: 0,
 };
 
+const styleExamples = {
+  linear: [
+    { name: "Bill Gates", country: "🇺🇸 USA", role: "Tech Founder, Microsoft" },
+    {
+      name: "Marie Curie",
+      country: "🇵🇱 Poland",
+      role: "Scientist & Nobel Laureate",
+    },
+    { name: "Satya Nadella", country: "🇮🇳 India", role: "CEO, Microsoft" },
+  ],
+  multi: [
+    {
+      name: "Oprah Winfrey",
+      country: "🇺🇸 USA",
+      role: "Talk Show Host & Entrepreneur",
+    },
+    { name: "Shakira", country: "🇨🇴 Colombia", role: "Singer & Humanitarian" },
+    { name: "Jamie Oliver", country: "🇬🇧 UK", role: "Celebrity Chef" },
+  ],
+  reactive: [
+    {
+      name: "Hayao Miyazaki",
+      country: "🇯🇵 Japan",
+      role: "Film Director, Studio Ghibli",
+    },
+    {
+      name: "Yo-Yo Ma",
+      country: "🇺🇸 USA",
+      role: "Cellist & Cultural Ambassador",
+    },
+    {
+      name: "Steve Wozniak",
+      country: "🇺🇸 USA",
+      role: "Co-Founder, Apple Inc.",
+    },
+  ],
+};
+
 export default function Play() {
   const [currentKey, setCurrentKey] = useState<string>("start");
   const [scores, setScores] = useState(initialScores);
@@ -51,6 +89,14 @@ export default function Play() {
 
   return (
     <SafeAreaView style={styles.container}>
+      {!showResult && (
+        <View style={styles.scoreContainerSmall}>
+          <Text style={styles.textScore}>Your score</Text>
+          <Bar label="🧠 Linear" value={scores.linear} color="#faa918" />
+          <Bar label="🔥 Multi-Active" value={scores.multi} color="#e53838" />
+          <Bar label="🌊 Reactive" value={scores.reactive} color="#1cb0f6" />
+        </View>
+      )}
       <View style={styles.inner}>
         {showResult ? (
           <ResultScreen
@@ -86,6 +132,10 @@ const ResultScreen = ({
     reactive:
       "🌊 You lean toward Reactive behavior: calm, respectful, and harmony-driven.",
   };
+  const example =
+    styleExamples[topStyle][
+      Math.floor(Math.random() * styleExamples[topStyle].length)
+    ];
 
   return (
     <View style={styles.resultCard}>
@@ -96,6 +146,13 @@ const ResultScreen = ({
         <Bar label="🧠 Linear-Active" value={scores.linear} color="#faa918" />
         <Bar label="🔥 Multi-Active" value={scores.multi} color="#e53838" />
         <Bar label="🌊 Reactive" value={scores.reactive} color="#1cb0f6" />
+      </View>
+
+      <View style={styles.figureSection}>
+        <Text style={styles.figureTitle}>You're like:</Text>
+        <Text style={styles.figureText}>
+          {example.country} {example.name} – {example.role}
+        </Text>
       </View>
 
       <Pressable style={styles.button} onPress={onRestart}>
@@ -114,6 +171,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
+    paddingHorizontal: 16,
   },
   resultCard: {
     backgroundColor: "#FFFFFF",
@@ -156,6 +214,42 @@ const styles = StyleSheet.create({
     width: "100%",
     marginTop: 16,
     marginBottom: 24,
+    gap: 12,
+  },
+  figureSection: {
+    marginTop: 12,
+    alignItems: "center",
+    marginBottom: 24,
+  },
+  figureTitle: {
+    fontSize: 18,
+    fontWeight: "bold",
+    marginBottom: 8,
+    color: "#333",
+    fontFamily: "Nunito_700Bold",
+  },
+  figureText: {
+    fontSize: 16,
+    marginBottom: 4,
+    color: "#444",
+    fontFamily: "Nunito_400Regular",
+  },
+  scoreContainerSmall: {
+    backgroundColor: "#FFFFFF",
+    paddingHorizontal: 24,
+    paddingTop: 16,
+    paddingBottom: 16,
+    gap: 8,
+    width: "100%",
+    borderBottomColor: "#cfcfcf",
+    borderBottomWidth: 2,
+  },
+  textScore: {
+    fontFamily: "SpecialGothic",
+    color: "#7ac70c",
+  },
+  playContainer: {
+    alignItems: "center",
     gap: 12,
   },
 });
